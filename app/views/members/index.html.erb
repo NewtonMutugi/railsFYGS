@@ -1,0 +1,12 @@
+<h1>Members</h1>
+<ol>
+    <% @members.each do |member| %>
+        <li>
+             <%= link_to member.first_name + member.last_name, member %>
+        </li>
+    <% end %>
+    <br>
+    <button>
+    <%= link_to "New Member", new_member_path %>
+    </button>
+</ol>

@@ -1,0 +1,21 @@
+<h1><%= @member.first_name%> <%= @member.last_name %></h1>
+<p><b>First name:</b>  <%= @member.email%></p>
+<p><b>Last name:</b>  <%= @member.phone%></p>
+<p><b>DOB:</b> <%= @member.DOB%></p>
+<p><b>Date joined:</b> <%= @member.created_at%></p>
+<span>
+    Total contributions: <%= @member.contributions.size %>
+</span>
+
+
+<ul>
+    <li><%= link_to "Edit Member", edit_member_path(@member) %></li>
+    <li><%= link_to "Destroy", member_path(@member),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %></li>
+    <li><%= link_to "Make contributions", new_member_contribution_path(@member) %></li>
+    <%= link_to "Go Back", root_path %>
+</ul>
+
+<%= render @member.contributions %>
+

@@ -1,0 +1,47 @@
+<%= form_with model: @member do |form | %>
+ <div>
+    <div>
+        <div class="error_message">
+            <% @member.errors.full_messages_for(:first_name).each do |message| %>
+                <%= message %>
+            <% end %>
+        </div>
+        <%= form.label "First Name:" %> <%= form.text_field :first_name %> <br>
+    </div>
+    <div> 
+        <div class="error_message">
+            <% @member.errors.full_messages_for(:last_name).each do |message| %>
+                <%= message %>
+            <% end %>
+        </div>
+        <%= form.label "Last Name:" %> <%= form.text_field :last_name %> <br>
+    </div>
+    <div>
+        <div class="error_message">
+            <% @member.errors.full_messages_for(:email).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+        <%= form.label "Email:" %> <%= form.text_field :email %> <br>
+    </div>
+    <div>
+        <div class="error_message">
+            <% @member.errors.full_messages_for(:phone).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+        <%= form.label "Phone:" %> <%= form.text_field :phone %> <br>
+    </div>
+    <div>
+        <div class="error_message">
+            <% @member.errors.full_messages_for(:DOB).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+        <%= form.label "Date of Birth:" %> <%= form.text_field :DOB %> <br>
+    </div>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
+ </div>

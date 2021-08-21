@@ -1,0 +1,25 @@
+<h2>Make contributions as <%= @member.first_name + @member.last_name%> </h2>
+    <%= form_with model: [@member, @member.contributions.build ] do |form| %>
+        <p>
+            <div class="error_message">
+                <% @contribution.errors.full_messages_for(:contribution).each do |message| %>
+                    <%= message %>
+                <% end %>
+            </div>
+            <%= form.label :contribution %>
+            <%= form.text_field :contribution %>
+        </p>
+        <p>
+            <div class="error_message">
+                <% @contribution.errors.full_messages_for(:contribution).each do |message| %>
+                    <%= message %>
+                <% end %>
+            </div>
+            <%= form.label :date_of_payment %>
+            <%= form.text_field :date_of_payment %>
+        </p>   
+        <p>
+            <%= form.submit %>
+        </p> 
+    <% end %>
+    <%= link_to "Go Back", member_path(@member) %>
