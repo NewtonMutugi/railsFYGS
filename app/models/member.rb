@@ -1,5 +1,6 @@
 class Member < ApplicationRecord
     has_many :contributions, dependent: :delete_all
+    has_one :loan, through: :contributions
 
     validates_associated :contributions
     validates :first_name, presence: true

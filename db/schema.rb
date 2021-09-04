@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_19_211252) do
+ActiveRecord::Schema.define(version: 2021_09_02_124630) do
 
   create_table "contributions", force: :cascade do |t|
     t.integer "contribution"
@@ -19,6 +19,26 @@ ActiveRecord::Schema.define(version: 2021_08_19_211252) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_contributions_on_member_id"
+  end
+
+  create_table "loan_types", force: :cascade do |t|
+    t.string "loan_type"
+    t.float "interest_rate"
+    t.integer "repayment_period"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "loan_id", null: false
+    t.index ["loan_id"], name: "index_loan_types_on_loan_id"
+  end
+
+  create_table "loans", force: :cascade do |t|
+    t.string "loan_type"
+    t.date "date_borrowed"
+    t.integer "loan_amount"
+    t.integer "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_loans_on_member_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -32,4 +52,6 @@ ActiveRecord::Schema.define(version: 2021_08_19_211252) do
   end
 
   add_foreign_key "contributions", "members"
+  add_foreign_key "loan_types", "loans"
+  add_foreign_key "loans", "members"
 end

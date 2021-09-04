@@ -14,6 +14,7 @@
             method: :delete,
             data: { confirm: "Are you sure?" } %></li>
     <li><%= link_to "Make contributions", new_member_contribution_path(@member) %></li>
+    <li><%= link_to "Get Loan", member_loans_path(@member) %></li>
     <%= link_to "Go Back", root_path %>
 </ul>
 

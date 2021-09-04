@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  loan_type: MyString
+  date_borrowed: 2021-08-21
+  loan_amount: 1
+  member: one
+  contribution: one
+
+two:
+  loan_type: MyString
+  date_borrowed: 2021-08-21
+  loan_amount: 1
+  member: two
+  contribution: two
