@@ -1,0 +1,7 @@
+<%= form_with model: @member do |form| %>
+Select Loan type:
+    <%= form.radio_button :loan_type, "Emergency Loan" %>
+    <%= form.radio_button :loan_type, "Short Loan" %>
+    <%= form.radio_button :loan_type, "Normal Loan" %>
+    <%= form.radio_button :loan_type, "Development Loan" %>
+<%= end %>

@@ -1,6 +1,17 @@
-<p>
-    Contribution: Ksh. <%= contribution.contribution %>
-</p>
-<p>
-    Date of Payment: <%= contribution.date_of_payment%>
-</p>
+<table>
+<thead>
+  <tr>
+    <th>Contribution: </th>
+    <th>Date of Payment: </th>
+  </tr>
+</thead>
+
+<tbody>
+  <%# @contributions.each do |contribution| %>
+  <tr>
+    <td><%= contribution.contribution %></td>
+    <td><%= contribution.date_of_payment%></td>
+  </tr>
+  <%# end %>
+</tbody>
+</table>

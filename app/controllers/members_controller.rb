@@ -5,6 +5,7 @@ class MembersController < ApplicationController
   
   def show
     @member = Member.find(params[:id])
+    @contributions = @member.contributions.all
   end
 
   def new

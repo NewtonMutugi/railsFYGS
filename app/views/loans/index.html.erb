@@ -1,8 +1,5 @@
  <%if @months_contributed < 6%>
         <%= render 'loans/alert' %>            
 <%else%>
-        <%= form_with model: @member do |form| %>
-            <%#= form.radio_button :loan_type "Emergency Loan" %>
-            <%#= form.radio_button :loan_type "Emergency Loan" %>
-        <% end %>
+        <%= link_to "Get Loan", new_member_loan_path %>
 <%  end%>

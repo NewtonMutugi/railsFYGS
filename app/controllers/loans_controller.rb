@@ -10,7 +10,7 @@ class LoansController < ApplicationController
     end
 
     def new
-        
+       @member = Member.find(params[:member_id]) 
     end
 
     def create

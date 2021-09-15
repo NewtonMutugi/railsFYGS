@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_02_124630) do
+ActiveRecord::Schema.define(version: 2021_09_06_073405) do
 
   create_table "contributions", force: :cascade do |t|
     t.integer "contribution"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2021_09_02_124630) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["member_id"], name: "index_contributions_on_member_id"
+  end
+
+  create_table "guarantors", force: :cascade do |t|
+    t.string "guarantor_name"
+    t.integer "loaner_id"
+    t.integer "guaranteed_amount"
+    t.integer "loan_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["loan_id"], name: "index_guarantors_on_loan_id"
   end
 
   create_table "loan_types", force: :cascade do |t|
@@ -52,6 +62,7 @@ ActiveRecord::Schema.define(version: 2021_09_02_124630) do
   end
 
   add_foreign_key "contributions", "members"
+  add_foreign_key "guarantors", "loans"
   add_foreign_key "loan_types", "loans"
   add_foreign_key "loans", "members"
 end

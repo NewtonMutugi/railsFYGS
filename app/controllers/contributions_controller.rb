@@ -17,6 +17,7 @@ class ContributionsController < ApplicationController
     
     def show
         @member = Member.find(params[:id])
+        @contributions = @member.contributions.all
     end
     private
     def contribution_params

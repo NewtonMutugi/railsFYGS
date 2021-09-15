@@ -2,7 +2,7 @@
 <ol>
     <% @members.each do |member| %>
         <li>
-             <%= link_to member.first_name + member.last_name, member %>
+             <%= link_to member.first_name + ' ' +member.last_name, member %>
         </li>
     <% end %>
     <br>
